@@ -1,0 +1,53 @@
+<%= form_with(model: concert) do |form| %>
+  <% if concert.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(concert.errors.count, "error") %> prohibited this concert from being saved:</h2>
+
+      <ul>
+        <% concert.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 row form-control-lg" >
+    <label class="col-sm-2 col-form-label">Nombre del Grupo</label>
+    <div class="col-sm-10">
+      <% group_id = @concert.group_id %> 
+      <%= form.select :group_id, options_from_collection_for_select(@groups, :id, :name, group_id ) %>
+    </div>
+  </div>
+
+  <div class="mb-3 row form-control-lg" >
+    <label class="col-sm-2 col-form-label">Num de Personas</label>
+    <div class="col-sm-10">
+      <%= form.number_field :attendance %>
+    </div>
+  </div>
+
+  <div class="mb-3 row form-control-lg" >
+    <label class="col-sm-2 col-form-label">Duración (hrs)</label>
+    <div class="col-sm-10">
+      <%= form.number_field :duration %>
+    </div>
+  </div>
+
+  <div class="mb-3 row form-control-lg" >
+    <label class="col-sm-2 col-form-label">Lugar</label>
+    <div class="col-sm-10">
+      <%= form.text_field :place %>
+    </div>
+  </div>
+
+  <div class="mb-3 row form-control-lg" >
+    <label class="col-sm-2 col-form-label">Fecha</label>
+    <div class="col-sm-10">
+      <%= form.datetime_field :date %>
+    </div>
+  </div>
+
+ <div>
+    <%= form.submit %>
+ </div>
+<% end %>

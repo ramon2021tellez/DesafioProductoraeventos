@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<!-- <h1>Grupos</h1> -->
+
+<div id="groups">
+  <% @groups.each do |group| %>
+    <%= render group %>
+    
+    <button style="border-radius: 60px; float: right;" >
+      <%= link_to "Mostrar el grupo", group, class: "btn btn-inverse" %>
+    </button>
+    <br><br>
+  <% end %>
+</div>

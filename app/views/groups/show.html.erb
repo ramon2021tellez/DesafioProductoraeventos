@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @group %>
+
+<div>
+
+  <button style="border-radius: 60px; float: right; padding: 3px 5px;" >
+    <%= link_to "Editar", edit_group_path(@group), class: "btn btn-inverse" %>
+  </button>
+
+  <button style="border-radius: 60px; float: left; padding: 3px 5px;">
+    <%= link_to "Listar grupos", groups_path, class: "btn btn-inverse" %>
+  </button>
+  
+  <%= button_to "Eliminar", @group, method: :delete, class: "btn btn-inverse" %>
+  
+</div>

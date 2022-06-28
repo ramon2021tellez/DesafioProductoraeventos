@@ -1,0 +1,65 @@
+<div id="<%= dom_id group %>">
+  <p>
+    <h3>
+      <strong>Grupo:</strong>
+      <%= group.name %>
+    </h3>
+  </p>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <strong>Num de Integrantes : </strong>
+          <%= group.crew %>
+        </td>
+        <td>
+          <strong>Fecha del Debut : </strong>
+          <%= group.debut_date %>
+        </td>
+        <td>
+          <strong>Tipo de Grupo : </strong>
+          <%= group.group_type %>
+        </td>      
+
+        <% if group.cant_concert != 0 %>
+        <!-- Mostrar los conciertos -->
+          <td>
+            <strong>Conciertos <%= group.cant_concert %> </strong>
+            <ul>
+              <% group.concerts.each do |concert| %>
+                <li>
+                  Lugar:<%= concert.place %>, Personas:<%= concert.attendance %>
+                </li>
+              <% end %>
+            </ul>
+          </td>
+          <% end %>
+      </tr>
+     </tbody>
+  </table>
+
+
+  <% if group.cant_concert != 0 %>
+  <!-- Mostrar los conciertos -->  
+  <table class="table" >
+      <thead>
+        <tr align="center">
+          <th scope="col">Conciertos del Mes</th>
+          <th scope="col">Último concierto</th>
+          <th scope="col">Duracion maxima Hrs</th>
+          <th scope="col">Publico maximo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr align="center">
+          <td><%= group.concert_moth %></td>
+          <td><%= group.concert_last %></td>
+          <td><%= group.duration_max %></td>
+          <td><%= group.attendance_max %></td>      
+        </tr>
+      </tbody>
+  
+    </table>
+  <% end %>
+</div>

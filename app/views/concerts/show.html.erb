@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @concert %>
+
+<div>
+
+  <button style="border-radius: 60px; float: left;" >
+    <%= link_to "Editar", edit_concert_path(@concert) , class: "btn btn-inverse" %>
+  </button>
+
+  <button style="border-radius: 60px; float: left;" >
+    <%= link_to "Listar Conciertos", concerts_path , class: "btn btn-inverse" %>
+  </button>
+
+  <%= button_to "Eliminar", @concert, method: :delete , class: "btn btn-inverse" %>
+</div>

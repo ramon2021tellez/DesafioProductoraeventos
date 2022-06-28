@@ -1,0 +1,39 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Conciertos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Cantidad de Personas</th>
+      <th scope="col">Duracion</th>
+      <th scope="col">Lugar</th>
+      <th scope="col">Fecha</th>      
+      <th scope="col">Banda</th>      
+      <th scope="col"></th>      
+    </tr>
+  </thead>
+  <tbody>
+    <% @concerts.each do |concert| %>
+      <tr>      
+        <td><%= concert.attendance%></td>
+        <td><%= concert.duration %></td>
+        <td><%= concert.place %></td>
+        <td><%= concert.date %></td>
+        <td><%= concert.group_name %></td>
+        <td>
+          <button style="border-radius: 60px; float: left;" >
+            <%= link_to "Editar", edit_concert_path(concert), class: "btn btn-inverse" %>
+          </button>
+        </td>
+        <td>
+          <%= button_to "Eliminar", concert, method: :delete %>
+        </td>        
+      </tr>      
+    <% end %>
+
+  </tbody>
+</table>
+
+
+
